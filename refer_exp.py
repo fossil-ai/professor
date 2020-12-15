@@ -41,14 +41,14 @@ Hardware Specifications:
 
 gpus = tf.config.experimental.list_physical_devices('GPU')
 if gpus:
-  # Restrict TensorFlow to only use the first GPU
-  try:
-    tf.config.experimental.set_visible_devices(gpus[0], 'GPU')
-    logical_gpus = tf.config.experimental.list_logical_devices('GPU')
-    print(len(gpus), "Physical GPUs,", len(logical_gpus), "Logical GPU")
-  except RuntimeError as e:
-    # Visible devices must be set before GPUs have been initialized
-    print(e)
+    # Restrict TensorFlow to only use the first GPU
+    try:
+        tf.config.experimental.set_visible_devices(gpus[0], 'GPU')
+        logical_gpus = tf.config.experimental.list_logical_devices('GPU')
+        print(len(gpus), "Physical GPUs,", len(logical_gpus), "Logical GPU")
+    except RuntimeError as e:
+        # Visible devices must be set before GPUs have been initialized
+        print(e)
 
 
 def swap_xy(boxes):
@@ -92,7 +92,8 @@ def convert_to_corners(boxes):
       converted boxes with shape same as that of boxes.
     """
     return tf.concat(
-        [boxes[..., :2] - boxes[..., 2:] / 2.0, boxes[..., :2] + boxes[..., 2:] / 2.0],
+        [boxes[..., :2] - boxes[..., 2:] / 2.0,
+            boxes[..., :2] + boxes[..., 2:] / 2.0],
         axis=-1,
     )
 
@@ -215,7 +216,8 @@ class AnchorBox:
         """
         rx = tf.range(feature_width, dtype=tf.float32) + 0.5
         ry = tf.range(feature_height, dtype=tf.float32) + 0.5
-        centers = tf.stack(tf.meshgrid(rx, ry), axis=-1) * self._strides[level - 3]
+        centers = tf.stack(tf.meshgrid(rx, ry), axis=-1) * \
+            self._strides[level - 3]
         centers = tf.expand_dims(centers, axis=-2)
         centers = tf.tile(centers, [1, 1, self._num_anchors, 1])
         dims = tf.tile(
@@ -246,7 +248,6 @@ class AnchorBox:
             for i in range(3, 8)
         ]
         return tf.concat(anchors, axis=0)
-
 
 
 def resize_and_pad_image(
@@ -313,7 +314,7 @@ def preprocess_data(sample):
     features = {
         'height': tf.io.FixedLenFeature([], tf.int64),
         'width': tf.io.FixedLenFeature([], tf.int64),
-        'depth':tf.io.FixedLenFeature([], tf.int64),
+        'depth': tf.io.FixedLenFeature([], tf.int64),
         'label': tf.io.FixedLenFeature([], tf.int64),
         'image_raw': tf.io.FixedLenFeature([], tf.string),
         'caption': tf.io.FixedLenFeature([], tf.string),
@@ -368,6 +369,7 @@ def preprocess_string_data(sample):
     caption = parsed_features["caption"]
 
     return caption
+
 
 class LabelEncoder:
     """Transforms the raw labels into targets for training.
@@ -425,7 +427,8 @@ class LabelEncoder:
         matched_gt_idx = tf.argmax(iou_matrix, axis=1)
         positive_mask = tf.greater_equal(max_iou, match_iou)
         negative_mask = tf.less(max_iou, ignore_iou)
-        ignore_mask = tf.logical_not(tf.logical_or(positive_mask, negative_mask))
+        ignore_mask = tf.logical_not(
+            tf.logical_or(positive_mask, negative_mask))
         return (
             matched_gt_idx,
             tf.cast(positive_mask, dtype=tf.float32),
@@ -436,7 +439,8 @@ class LabelEncoder:
         """Transforms the ground truth boxes into targets for training"""
         box_target = tf.concat(
             [
-                (matched_gt_boxes[:, :2] - anchor_boxes[:, :2]) / anchor_boxes[:, 2:],
+                (matched_gt_boxes[:, :2] -
+                 anchor_boxes[:, :2]) / anchor_boxes[:, 2:],
                 tf.math.log(matched_gt_boxes[:, 2:] / anchor_boxes[:, 2:]),
             ],
             axis=-1,
@@ -446,7 +450,8 @@ class LabelEncoder:
 
     def _encode_sample(self, image_shape, gt_boxes, cls_ids):
         """Creates box and classification targets for a single sample"""
-        anchor_boxes = self._anchor_box.get_anchors(image_shape[1], image_shape[2])
+        anchor_boxes = self._anchor_box.get_anchors(
+            image_shape[1], image_shape[2])
         cls_ids = tf.cast(cls_ids, dtype=tf.float32)
         matched_gt_idx, positive_mask, ignore_mask = self._match_anchor_boxes(
             anchor_boxes, gt_boxes
@@ -467,11 +472,13 @@ class LabelEncoder:
         images_shape = tf.shape(batch_images)
         print(batch_images)
         batch_size = images_shape[0]
-        labels = tf.TensorArray(dtype=tf.float32, size=batch_size, dynamic_size=True)
+        labels = tf.TensorArray(
+            dtype=tf.float32, size=batch_size, dynamic_size=True)
         for i in range(batch_size):
             label = self._encode_sample(images_shape, gt_boxes[i], cls_ids[i])
             labels = labels.write(i, label)
-        batch_images = tf.keras.applications.resnet.preprocess_input(batch_images)
+        batch_images = tf.keras.applications.resnet.preprocess_input(
+            batch_images)
         print(batch_images)
 
         return {'images': batch_images, 'caption': batch_captions}, labels.stack()
@@ -514,7 +521,8 @@ class FeaturePyramid(keras.layers.Layer):
         self.upsample_2x = keras.layers.UpSampling2D(2)
 
     def call(self, images, training=False):
-        c3_output, c4_output, c5_output = self.backbone(images, training=training)
+        c3_output, c4_output, c5_output = self.backbone(
+            images, training=training)
         p3_output = self.conv_c3_1x1(c3_output)
         p4_output = self.conv_c4_1x1(c4_output)
         p5_output = self.conv_c5_1x1(c5_output)
@@ -530,17 +538,20 @@ class FeaturePyramid(keras.layers.Layer):
 
 class TextualEmbeddingLayer(keras.layers.Layer):
     def __init__(self, encoder, **kwargs):
-        super(TextualEmbeddingLayer, self).__init__(name="TextualEmbeddingLayer", **kwargs)
+        super(TextualEmbeddingLayer, self).__init__(
+            name="TextualEmbeddingLayer", **kwargs)
         self.encoder = encoder
         print(len(self.encoder.get_vocabulary()))
-        self.input_text_layer = tf.keras.layers.InputLayer(input_shape=[1, len(self.encoder.get_vocabulary())])
+        self.input_text_layer = tf.keras.layers.InputLayer(
+            input_shape=[1, len(self.encoder.get_vocabulary())])
         self.embedding_layer_1 = tf.keras.layers.Embedding(
-                input_dim=len(self.encoder.get_vocabulary()),
-                output_dim=64,
-                mask_zero=True)
-        self.embedding_layer_2 = tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64))
+            input_dim=len(self.encoder.get_vocabulary()),
+            output_dim=64,
+            mask_zero=True)
+        self.embedding_layer_2 = tf.keras.layers.Bidirectional(
+            tf.keras.layers.LSTM(64))
         self.embedding_layer_3 = tf.keras.layers.Dense(64, activation='relu')
-    
+
     def call(self, text, training=True):
         output_0 = self.encoder(text)
         output_1 = self.embedding_layer_1(output_0)
@@ -548,9 +559,11 @@ class TextualEmbeddingLayer(keras.layers.Layer):
         output_3 = self.embedding_layer_3(output_2)
         return output_3
 
+
 class MultiModalFusionHead(keras.layers.Layer):
     def __init__(self, K, L, **kwargs):
-        super(MultiModalFusionHead, self).__init__(name="MultiModalFusionHead", **kwargs)
+        super(MultiModalFusionHead, self).__init__(
+            name="MultiModalFusionHead", **kwargs)
         self.feature_flatten = tf.keras.layers.Reshape((-1,))
         self.feature_encoder = tf.keras.layers.Dense(10, activation='relu')
         self.text_flatten = tf.keras.layers.Reshape((-1,))
@@ -558,9 +571,12 @@ class MultiModalFusionHead(keras.layers.Layer):
         self.add = tf.keras.layers.Add()
 
     def build(self, input_shape_):
-        self.input_feature_layer = tf.keras.layers.InputLayer(input_shape=input_shape_[0])
-        tot = input_shape_[0][0]*input_shape_[0][1]*input_shape_[0][2]*input_shape_[0][3]
-        self.final_feature_encoder = tf.keras.layers.Dense(tot, activation='relu')
+        self.input_feature_layer = tf.keras.layers.InputLayer(
+            input_shape=input_shape_[0])
+        tot = input_shape_[0][0]*input_shape_[0][1] * \
+            input_shape_[0][2]*input_shape_[0][3]
+        self.final_feature_encoder = tf.keras.layers.Dense(
+            tot, activation='relu')
 
     def call(self, inputs, training=False):
         fpn_features = inputs[0]
@@ -590,7 +606,8 @@ def build_head(output_filters, bias_init):
     kernel_init = tf.initializers.RandomNormal(0.0, 0.01)
     for _ in range(4):
         head.add(
-            keras.layers.Conv2D(256, 3, padding="same", kernel_initializer=kernel_init)
+            keras.layers.Conv2D(256, 3, padding="same",
+                                kernel_initializer=kernel_init)
         )
         head.add(keras.layers.ReLU())
     head.add(
@@ -605,6 +622,7 @@ def build_head(output_filters, bias_init):
     )
     return head
 
+
 class RetinaNet(keras.Model):
     """A subclassed Keras model implementing the RetinaNet architecture.
 
@@ -618,7 +636,8 @@ class RetinaNet(keras.Model):
         super(RetinaNet, self).__init__(name="RetinaNet", **kwargs)
         self.fpn = FeaturePyramid(backbone)
         self.ten = TextualEmbeddingLayer(text_encoder)
-        self.mmfs = [MultiModalFusionHead(36, 4), MultiModalFusionHead(36, 4), MultiModalFusionHead(36, 4), MultiModalFusionHead(36, 4), MultiModalFusionHead(36, 4)]
+        self.mmfs = [MultiModalFusionHead(36, 4), MultiModalFusionHead(36, 4), MultiModalFusionHead(
+            36, 4), MultiModalFusionHead(36, 4), MultiModalFusionHead(36, 4)]
         self.num_classes = num_classes
 
         prior_probability = tf.constant_initializer(-np.log((1 - 0.01) / 0.01))
@@ -636,14 +655,17 @@ class RetinaNet(keras.Model):
         box_outputs = []
         for index, feature in enumerate(img_features):
             box_head_feature = self.box_head(feature)
-            box_head_feature = self.mmfs[index]([box_head_feature, txt_features, M])
+            box_head_feature = self.mmfs[index](
+                [box_head_feature, txt_features, M])
             box_outputs.append(tf.reshape(box_head_feature, [N, -1, 4]))
-            cls_outputs.append(tf.reshape(self.cls_head(feature), [N, -1, self.num_classes]))
+            cls_outputs.append(tf.reshape(self.cls_head(
+                feature), [N, -1, self.num_classes]))
 
         cls_outputs = tf.concat(cls_outputs, axis=1)
         box_outputs = tf.concat(box_outputs, axis=1)
         print("OKAY")
         return tf.concat([box_outputs, cls_outputs], axis=-1)
+
 
 class DecodePredictions(tf.keras.layers.Layer):
     """A Keras layer that decodes predictions of the RetinaNet model.
@@ -687,7 +709,8 @@ class DecodePredictions(tf.keras.layers.Layer):
         boxes = box_predictions * self._box_variance
         boxes = tf.concat(
             [
-                boxes[:, :, :2] * anchor_boxes[:, :, 2:] + anchor_boxes[:, :, :2],
+                boxes[:, :, :2] * anchor_boxes[:, :, 2:] +
+                anchor_boxes[:, :, :2],
                 tf.math.exp(boxes[:, :, 2:]) * anchor_boxes[:, :, 2:],
             ],
             axis=-1,
@@ -697,10 +720,12 @@ class DecodePredictions(tf.keras.layers.Layer):
 
     def call(self, images, predictions):
         image_shape = tf.cast(tf.shape(images), dtype=tf.float32)
-        anchor_boxes = self._anchor_box.get_anchors(image_shape[1], image_shape[2])
+        anchor_boxes = self._anchor_box.get_anchors(
+            image_shape[1], image_shape[2])
         box_predictions = predictions[:, :, :4]
         cls_predictions = tf.nn.sigmoid(predictions[:, :, 4:])
-        boxes = self._decode_box_predictions(anchor_boxes[None, ...], box_predictions)
+        boxes = self._decode_box_predictions(
+            anchor_boxes[None, ...], box_predictions)
 
         return tf.image.combined_non_max_suppression(
             tf.expand_dims(boxes, axis=2),
@@ -749,7 +774,8 @@ class RetinaNetClassificationLoss(tf.losses.Loss):
             labels=y_true, logits=y_pred
         )
         probs = tf.nn.sigmoid(y_pred)
-        alpha = tf.where(tf.equal(y_true, 1.0), self._alpha, (1.0 - self._alpha))
+        alpha = tf.where(tf.equal(y_true, 1.0),
+                         self._alpha, (1.0 - self._alpha))
         pt = tf.where(tf.equal(y_true, 1.0), probs, 1 - probs)
         loss = alpha * tf.pow(1.0 - pt, self._gamma) * cross_entropy
         return tf.reduce_sum(loss, axis=-1)
@@ -759,7 +785,8 @@ class RetinaNetLoss(tf.losses.Loss):
     """Wrapper to combine both the losses"""
 
     def __init__(self, num_classes=80, alpha=0.25, gamma=2.0, delta=1.0):
-        super(RetinaNetLoss, self).__init__(reduction="auto", name="RetinaNetLoss")
+        super(RetinaNetLoss, self).__init__(
+            reduction="auto", name="RetinaNetLoss")
         self._clf_loss = RetinaNetClassificationLoss(alpha, gamma)
         self._box_loss = RetinaNetBoxLoss(delta)
         self._num_classes = num_classes
@@ -775,25 +802,30 @@ class RetinaNetLoss(tf.losses.Loss):
             dtype=tf.float32,
         )
         cls_predictions = y_pred[:, :, 4:]
-        positive_mask = tf.cast(tf.greater(y_true[:, :, 4], -1.0), dtype=tf.float32)
-        ignore_mask = tf.cast(tf.equal(y_true[:, :, 4], -2.0), dtype=tf.float32)
+        positive_mask = tf.cast(tf.greater(
+            y_true[:, :, 4], -1.0), dtype=tf.float32)
+        ignore_mask = tf.cast(
+            tf.equal(y_true[:, :, 4], -2.0), dtype=tf.float32)
         clf_loss = self._clf_loss(cls_labels, cls_predictions)
         box_loss = self._box_loss(box_labels, box_predictions)
         clf_loss = tf.where(tf.equal(ignore_mask, 1.0), 0.0, clf_loss)
         box_loss = tf.where(tf.equal(positive_mask, 1.0), box_loss, 0.0)
         normalizer = tf.reduce_sum(positive_mask, axis=-1)
-        clf_loss = tf.math.divide_no_nan(tf.reduce_sum(clf_loss, axis=-1), normalizer)
-        box_loss = tf.math.divide_no_nan(tf.reduce_sum(box_loss, axis=-1), normalizer)
+        clf_loss = tf.math.divide_no_nan(
+            tf.reduce_sum(clf_loss, axis=-1), normalizer)
+        box_loss = tf.math.divide_no_nan(
+            tf.reduce_sum(box_loss, axis=-1), normalizer)
         loss = clf_loss + box_loss
         return loss
 
 
-VOCAB_SIZE=1000
+VOCAB_SIZE = 1000
 
 
 word_filename = "rc_data/tf_records/strings_training_t.record"
 autotune = tf.data.experimental.AUTOTUNE
-word_dataset = tf.data.TFRecordDataset([word_filename]).map(preprocess_string_data)
+word_dataset = tf.data.TFRecordDataset(
+    [word_filename]).map(preprocess_string_data)
 encoder = tf.keras.layers.experimental.preprocessing.TextVectorization(
     max_tokens=VOCAB_SIZE)
 encoder.adapt(word_dataset)
@@ -814,14 +846,15 @@ learning_rate_fn = tf.optimizers.schedules.PiecewiseConstantDecay(
 # autotune = tf.data.experimental.AUTOTUNE
 all_dataset = tf.data.TFRecordDataset([filename]).map(preprocess_data)
 
-val_dataset = all_dataset.take(10) 
+val_dataset = all_dataset.take(10)
 train_dataset = all_dataset.skip(10)
 
 # train_dataset = train_dataset.shuffle(8 * batch_size)
 train_dataset = train_dataset.padded_batch(
     batch_size=batch_size, padding_values=(0.0, 1e-8, -1, ''), drop_remainder=True
 )
-train_dataset = train_dataset.map(label_encoder.encode_batch, num_parallel_calls=autotune)
+train_dataset = train_dataset.map(
+    label_encoder.encode_batch, num_parallel_calls=autotune)
 train_dataset = train_dataset.apply(tf.data.experimental.ignore_errors())
 # train_dataset = train_dataset.prefetch(autotune)
 
@@ -829,7 +862,8 @@ train_dataset = train_dataset.apply(tf.data.experimental.ignore_errors())
 val_dataset = val_dataset.padded_batch(
     batch_size=batch_size, padding_values=(0.0, 1e-8, -1, ""), drop_remainder=True
 )
-val_dataset = val_dataset.map(label_encoder.encode_batch, num_parallel_calls=autotune)
+val_dataset = val_dataset.map(
+    label_encoder.encode_batch, num_parallel_calls=autotune)
 val_dataset = val_dataset.apply(tf.data.experimental.ignore_errors())
 # val_dataset = val_dataset.prefetch(autotune)
 
@@ -874,5 +908,3 @@ model.fit(
     callbacks=callbacks_list,
     verbose=1
 )
-
-
