@@ -4,6 +4,22 @@ from PIL import Image
 import tensorflow as tf
 import io
 
+
+'''
+Faisal Mohammad
+
+This effort is for our final project in CMSC 673.
+
+The following script is used to properly process
+the annotated data from the labelme software, and
+serialize it into TFRecord files for training.
+
+This code is entirely custom and written to 
+accomadate the TFRecordDataset API provided by TF.
+
+'''
+
+
 class Example:
 
     def __init__(self, img_filename, width, height, annotationMap):
@@ -25,14 +41,14 @@ def process(data_path):
                 with open(data_path + "/" + slide_dir + "/" + filename) as out_file:
                     json_data = json.load(out_file)
                     annotations = json_data['shapes']
-                    img_filename = data_path + "/" + slide_dir + "/" + filename.split(".")[0] + ".jpg"
+                    img_filename = data_path + "/" + slide_dir + \
+                        "/" + filename.split(".")[0] + ".jpg"
                     image = Image.open(img_filename)
                     width, height = image.size
                     for ann in annotations:
                         example = Example(img_filename, width, height, ann)
                         examples.append(example)
     return examples
-
 
 
 def _int64_feature(value):
@@ -48,12 +64,13 @@ def _float_feature(value):
         value = [value]
     return tf.train.Feature(float_list=tf.train.FloatList(value=value))
 
-def _bytes_feature(value):
-  """Returns a bytes_list from a string / byte."""
-  if isinstance(value, type(tf.constant(0))):
-    value = value.numpy() # BytesList won't unpack a string from an EagerTensor.
-  return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
+def _bytes_feature(value):
+    """Returns a bytes_list from a string / byte."""
+    if isinstance(value, type(tf.constant(0))):
+        # BytesList won't unpack a string from an EagerTensor.
+        value = value.numpy()
+    return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
 
 def tf_example(example):
@@ -99,6 +116,7 @@ def create_tf_records(examples):
             example = tf_example(example)
             writer.write(example.SerializeToString())
 
+
 def create_string_tf_records(examples):
     with tf.io.TFRecordWriter("rc_data/tf_records/strings_training_t.record") as writer:
         for i in range(len(examples)):
@@ -106,11 +124,11 @@ def create_string_tf_records(examples):
             example = tf_string_example(example)
             writer.write(example.SerializeToString())
 
+
 examples = process("rc_data/images")
 create_tf_records(examples)
 create_string_tf_records(examples)
 
-  
+
 print("Size of val set is " + str(len(list(val_dataset.as_numpy_iterator()))))
 print("Size of train set is " + str(len(list(train_dataset.as_numpy_iterator()))))
-

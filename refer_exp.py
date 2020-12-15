@@ -10,6 +10,35 @@ import matplotlib.pyplot as plt
 import tensorflow_datasets as tfds
 from tensorflow.keras.layers import concatenate
 
+
+'''
+Faisal Mohammad
+
+This effort is for our final project in CMSC 673:
+
+We tackle the task of referring expression comprehension
+using mathemtical-lecture slides.
+
+Our model utilizes RetinaNet (https://arxiv.org/abs/1708.02002)
+which provides a ResNet50 backbone under a Feature Pyramid Network
+layer (FPN). We make apprropriate adjustments to the model
+in order to incorporate textual input.
+
+The RetinaNet model is borrowed from the following source:
+https://github.com/keras-team/keras-io/blob/master/examples/vision/retinanet.py
+
+
+Input: an image/slide + a text-query 
+Output: a bounding box localizing the topic of interest.
+
+Hardware Specifications:
+- TF 2.3.0
+- CUDA 10.1
+- CuDNN 7.6.4
+- A single GPU (RTX 2080)
+
+'''
+
 gpus = tf.config.experimental.list_physical_devices('GPU')
 if gpus:
   # Restrict TensorFlow to only use the first GPU
@@ -512,8 +541,6 @@ class TextualEmbeddingLayer(keras.layers.Layer):
         self.embedding_layer_2 = tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64))
         self.embedding_layer_3 = tf.keras.layers.Dense(64, activation='relu')
     
-    # def build(self, input_shape_):
-
     def call(self, text, training=True):
         output_0 = self.encoder(text)
         output_1 = self.embedding_layer_1(output_0)
@@ -800,7 +827,7 @@ train_dataset = train_dataset.apply(tf.data.experimental.ignore_errors())
 
 
 val_dataset = val_dataset.padded_batch(
-    batch_size=batch_size, padding_values=(0.0, 1e-8, -1, "")
+    batch_size=batch_size, padding_values=(0.0, 1e-8, -1, ""), drop_remainder=True
 )
 val_dataset = val_dataset.map(label_encoder.encode_batch, num_parallel_calls=autotune)
 val_dataset = val_dataset.apply(tf.data.experimental.ignore_errors())
