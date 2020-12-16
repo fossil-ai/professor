@@ -109,7 +109,7 @@ def tf_string_example(example):
 
 
 def create_tf_records(examples):
-    with tf.io.TFRecordWriter("rc_data/tf_records/training_t.record") as writer:
+    with tf.io.TFRecordWriter("data/tf_records/all_data.record") as writer:
         for i in range(len(examples)):
             example = examples[i]
             print("Writing " + example.img_filename + " to TFRecord")
@@ -118,17 +118,13 @@ def create_tf_records(examples):
 
 
 def create_string_tf_records(examples):
-    with tf.io.TFRecordWriter("rc_data/tf_records/strings_training_t.record") as writer:
+    with tf.io.TFRecordWriter("data/tf_records/captions.record") as writer:
         for i in range(len(examples)):
             example = examples[i]
             example = tf_string_example(example)
             writer.write(example.SerializeToString())
 
 
-examples = process("rc_data/images")
+examples = process("data/images")
 create_tf_records(examples)
 create_string_tf_records(examples)
-
-
-print("Size of val set is " + str(len(list(val_dataset.as_numpy_iterator()))))
-print("Size of train set is " + str(len(list(train_dataset.as_numpy_iterator()))))

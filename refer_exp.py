@@ -39,17 +39,20 @@ Hardware Specifications:
 
 '''
 
-gpus = tf.config.experimental.list_physical_devices('GPU')
-if gpus:
-    # Restrict TensorFlow to only use the first GPU
-    try:
-        tf.config.experimental.set_visible_devices(gpus[0], 'GPU')
-        logical_gpus = tf.config.experimental.list_logical_devices('GPU')
-        print(len(gpus), "Physical GPUs,", len(logical_gpus), "Logical GPU")
-    except RuntimeError as e:
-        # Visible devices must be set before GPUs have been initialized
-        print(e)
+# gpus = tf.config.experimental.list_physical_devices('GPU')
+# if gpus:
+#     # Restrict TensorFlow to only use the first GPU
+#     try:
+#         tf.config.experimental.set_visible_devices(gpus[0], 'GPU')
+#         logical_gpus = tf.config.experimental.list_logical_devices('GPU')
+#         print(len(gpus), "Physical GPUs,", len(logical_gpus), "Logical GPU")
+#     except RuntimeError as e:
+#         # Visible devices must be set before GPUs have been initialized
+#         print(e)
 
+import tensorflow as tf
+physical_devices = tf.config.list_physical_devices('GPU')
+tf.config.experimental.set_memory_growth(physical_devices[0], enable=True)
 
 def swap_xy(boxes):
     """Swaps order the of x and y coordinates of the boxes.
@@ -648,7 +651,6 @@ class RetinaNet(keras.Model):
         print(inputs['images'])
         img_features = self.fpn(inputs['images'], training=training)
         txt_features = self.ten(inputs['caption'], training=training)
-        # txt_features = tf.expand_dims(txt_features, 0)
         N = tf.shape(inputs['images'])[0]
         M = tf.shape(inputs['caption'])[0]
         cls_outputs = []
@@ -663,7 +665,6 @@ class RetinaNet(keras.Model):
 
         cls_outputs = tf.concat(cls_outputs, axis=1)
         box_outputs = tf.concat(box_outputs, axis=1)
-        print("OKAY")
         return tf.concat([box_outputs, cls_outputs], axis=-1)
 
 
@@ -822,41 +823,41 @@ class RetinaNetLoss(tf.losses.Loss):
 VOCAB_SIZE = 1000
 
 
-word_filename = "rc_data/tf_records/strings_training_t.record"
+word_filename = "data/tf_records/captions.record"
 autotune = tf.data.experimental.AUTOTUNE
 word_dataset = tf.data.TFRecordDataset(
     [word_filename]).map(preprocess_string_data)
 encoder = tf.keras.layers.experimental.preprocessing.TextVectorization(
     max_tokens=VOCAB_SIZE)
 encoder.adapt(word_dataset)
-
+print(len(encoder.get_vocabulary()))
 model_dir = "retinanet/"
 batch_size = 1
 num_classes = 1
 
-filename = "rc_data/tf_records/training_t.record"
+filename = "data/tf_records/all_data.record"
 label_encoder = LabelEncoder()
 
-learning_rates = [2.5e-06, 0.000625, 0.00125, 0.0025, 0.00025, 2.5e-05]
+learning_rates = [2.5e-06, 0.000625, 0.00625, 0.0095, 0.00025, 2.5e-05]
 learning_rate_boundaries = [125, 250, 500, 240000, 360000]
 learning_rate_fn = tf.optimizers.schedules.PiecewiseConstantDecay(
     boundaries=learning_rate_boundaries, values=learning_rates
 )
 
-# autotune = tf.data.experimental.AUTOTUNE
+autotune = tf.data.experimental.AUTOTUNE
 all_dataset = tf.data.TFRecordDataset([filename]).map(preprocess_data)
 
-val_dataset = all_dataset.take(10)
+val_dataset = all_dataset.take(20)
 train_dataset = all_dataset.skip(10)
 
-# train_dataset = train_dataset.shuffle(8 * batch_size)
+train_dataset = train_dataset.shuffle(8 * batch_size)
 train_dataset = train_dataset.padded_batch(
     batch_size=batch_size, padding_values=(0.0, 1e-8, -1, ''), drop_remainder=True
 )
 train_dataset = train_dataset.map(
     label_encoder.encode_batch, num_parallel_calls=autotune)
 train_dataset = train_dataset.apply(tf.data.experimental.ignore_errors())
-# train_dataset = train_dataset.prefetch(autotune)
+train_dataset = train_dataset.prefetch(autotune)
 
 
 val_dataset = val_dataset.padded_batch(
@@ -865,15 +866,10 @@ val_dataset = val_dataset.padded_batch(
 val_dataset = val_dataset.map(
     label_encoder.encode_batch, num_parallel_calls=autotune)
 val_dataset = val_dataset.apply(tf.data.experimental.ignore_errors())
-# val_dataset = val_dataset.prefetch(autotune)
-
+val_dataset = val_dataset.prefetch(autotune)
 
 print("Size of val set is " + str(len(list(val_dataset.as_numpy_iterator()))))
 print("Size of train set is " + str(len(list(train_dataset.as_numpy_iterator()))))
-
-# for index, feature in enumerate(train_dataset):
-#     image_raw = feature[0]['images']
-#     print(image_raw.shape)
 
 print("Image size is 1024, 768")
 
@@ -891,11 +887,12 @@ callbacks_list = [
         save_best_only=False,
         save_weights_only=True,
         verbose=1,
-    )
+    ),
+    tf.keras.callbacks.TensorBoard(log_dir="./logs")
 ]
 
-train_steps_per_epoch = 110 // batch_size
-val_steps_per_epoch = 10 // batch_size
+train_steps_per_epoch = 105 // batch_size
+val_steps_per_epoch = 20 // batch_size
 
 train_steps = 4 * 10000
 epochs = train_steps // train_steps_per_epoch
@@ -908,3 +905,5 @@ model.fit(
     callbacks=callbacks_list,
     verbose=1
 )
+
+print(model.summary())
