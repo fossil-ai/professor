@@ -1,0 +1,58 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "shown here at the top is the univariate gaussian normal distribution",
+      "points": [
+        [
+          210.9230769230769,
+          130.3846153846154
+        ],
+        [
+          485.15384615384613,
+          221.9230769230769
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "also at the top here X is a random variable with a gaussian normal distribution",
+      "points": [
+        [
+          616.6923076923076,
+          149.23076923076923
+        ],
+        [
+          797.0769230769231,
+          205.76923076923077
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "at the bottom right, we can verify that the distribution is valid as the integral sums to 1, also the expected value is the mean",
+      "points": [
+        [
+          622.4615384615385,
+          358.8461538461538
+        ],
+        [
+          935.5384615384615,
+          593.0769230769231
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-04.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

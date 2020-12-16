@@ -1,0 +1,26 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "this is the likelihood",
+      "points": [
+        [
+          232.46153846153845,
+          229.6153846153846
+        ],
+        [
+          777.4615384615385,
+          287.6923076923077
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-09.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

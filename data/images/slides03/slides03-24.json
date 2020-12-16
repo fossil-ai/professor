@@ -1,0 +1,58 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "This KL function is known as the KL-divergence",
+      "points": [
+        [
+          114.0,
+          130.0
+        ],
+        [
+          482.07692307692304,
+          217.69230769230768
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "from the KL divergence formulation, this quantity is known as the cross entropy",
+      "points": [
+        [
+          86.6923076923077,
+          299.6153846153846
+        ],
+        [
+          735.1538461538461,
+          378.8461538461538
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "shown at the bottom here are the properties of KL divergence",
+      "points": [
+        [
+          111.3076923076923,
+          461.9230769230769
+        ],
+        [
+          476.30769230769226,
+          550.3846153846154
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-24.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

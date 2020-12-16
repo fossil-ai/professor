@@ -1,0 +1,42 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "shown at the top here is the entropy of our random variable X",
+      "points": [
+        [
+          343.6153846153846,
+          126.15384615384615
+        ],
+        [
+          685.9230769230769,
+          197.3076923076923
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "this is the entropy of a random variable drawn from a bernoulli distribution",
+      "points": [
+        [
+          280.15384615384613,
+          250.0
+        ],
+        [
+          746.3076923076923,
+          301.9230769230769
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-23.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

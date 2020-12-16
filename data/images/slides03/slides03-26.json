@@ -1,0 +1,42 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "this top term is the maximum likelihood problem for finding the theta parameters",
+      "points": [
+        [
+          195.53846153846152,
+          233.84615384615384
+        ],
+        [
+          503.23076923076917,
+          338.8461538461538
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "shown in the center here is the top term expanded",
+      "points": [
+        [
+          212.84615384615384,
+          431.15384615384613
+        ],
+        [
+          814.3846153846154,
+          514.6153846153846
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-26.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

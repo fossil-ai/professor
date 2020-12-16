@@ -1,0 +1,42 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "the constrained optimization problem",
+      "points": [
+        [
+          356.6923076923077,
+          150.3846153846154
+        ],
+        [
+          642.0769230769231,
+          211.15384615384616
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "taking the gradient of the objective with respect to z",
+      "points": [
+        [
+          307.07692307692304,
+          519.2307692307692
+        ],
+        [
+          702.4615384615385,
+          586.9230769230769
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides07-15.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

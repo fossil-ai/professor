@@ -1,0 +1,26 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "the naive bayes classifier assume the features x are conditionally independent given the classes y",
+      "points": [
+        [
+          270.9230769230769,
+          255.76923076923077
+        ],
+        [
+          744.3846153846154,
+          358.46153846153845
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides07-19.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

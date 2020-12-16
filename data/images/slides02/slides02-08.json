@@ -1,0 +1,26 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "shown at the top here is the general form of the linear equation",
+      "points": [
+        [
+          285.53846153846155,
+          180.0
+        ],
+        [
+          699.7692307692307,
+          216.9230769230769
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides02-08.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

@@ -1,0 +1,26 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "taking the gradient of a function with respect to w",
+      "points": [
+        [
+          151.69230769230768,
+          295.7692307692308
+        ],
+        [
+          461.30769230769226,
+          405.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides06-06.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

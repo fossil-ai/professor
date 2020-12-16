@@ -1,0 +1,42 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "shown at the top here is the joint distribution of the generative model",
+      "points": [
+        [
+          304.0,
+          217.69230769230768
+        ],
+        [
+          704.0,
+          263.8461538461538
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "at the bottom here is the class conditional density function, model as a multivariate normal distribution",
+      "points": [
+        [
+          317.8461538461538,
+          514.6153846153846
+        ],
+        [
+          703.2307692307692,
+          565.7692307692307
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides07-21.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

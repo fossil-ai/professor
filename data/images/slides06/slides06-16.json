@@ -1,0 +1,26 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Shown at the top here is the lass objective or the loss function with l1 regularization",
+      "points": [
+        [
+          270.15384615384613,
+          167.3076923076923
+        ],
+        [
+          742.4615384615385,
+          261.53846153846155
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides06-16.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

@@ -1,0 +1,58 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "at the top here is the gradient descent update for our parameter w using batch learning",
+      "points": [
+        [
+          200.15384615384616,
+          102.3076923076923
+        ],
+        [
+          787.8461538461538,
+          195.3846153846154
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "at the middle here is the gradient descent update for our weight w in online learning",
+      "points": [
+        [
+          253.23076923076923,
+          359.6153846153846
+        ],
+        [
+          750.1538461538461,
+          418.8461538461538
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "show at the bottom here is the parameter update using stochastic gradient descent via minibatch online learning",
+      "points": [
+        [
+          222.46153846153845,
+          575.0
+        ],
+        [
+          782.8461538461538,
+          668.4615384615385
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides06-22.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

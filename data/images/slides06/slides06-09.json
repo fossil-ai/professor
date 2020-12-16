@@ -1,0 +1,42 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "the partial deriative or gradient of f with respect to w",
+      "points": [
+        [
+          171.69230769230768,
+          211.9230769230769
+        ],
+        [
+          452.46153846153845,
+          420.7692307692308
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "taking the derivative of f twice with respect to w and obtaining the hessian",
+      "points": [
+        [
+          236.69230769230768,
+          491.53846153846155
+        ],
+        [
+          755.1538461538461,
+          729.2307692307692
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides06-09.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

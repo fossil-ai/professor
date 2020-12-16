@@ -1,0 +1,26 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "shown at the top is the loss function for the least square estimate",
+      "points": [
+        [
+          77.84615384615384,
+          117.3076923076923
+        ],
+        [
+          877.4615384615385,
+          208.46153846153845
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides02-11.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

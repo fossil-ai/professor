@@ -1,0 +1,58 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "this is the log-likelihood, we want to maximize this equation at the top",
+      "points": [
+        [
+          160.15384615384616,
+          156.9230769230769
+        ],
+        [
+          867.0769230769231,
+          235.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "shown here is the negative log-likelihood",
+      "points": [
+        [
+          138.6153846153846,
+          292.3076923076923
+        ],
+        [
+          848.6153846153846,
+          361.9230769230769
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "this objective function is often known as the least square regression loss",
+      "points": [
+        [
+          272.8461538461538,
+          486.15384615384613
+        ],
+        [
+          671.3076923076923,
+          555.3846153846154
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-15.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

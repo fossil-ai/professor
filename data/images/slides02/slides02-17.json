@@ -1,0 +1,58 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "here we take the partial derivative of our linear model with respect to w",
+      "points": [
+        [
+          249.76923076923077,
+          265.0
+        ],
+        [
+          407.8461538461538,
+          332.3076923076923
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "our linear model at the top",
+      "points": [
+        [
+          250.53846153846155,
+          174.23076923076923
+        ],
+        [
+          444.38461538461536,
+          261.15384615384613
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "taking the partial gradient shown in quadratic form expression",
+      "points": [
+        [
+          464.38461538461536,
+          450.0
+        ],
+        [
+          134.0,
+          385.38461538461536
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides02-17.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

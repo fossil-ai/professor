@@ -1,0 +1,42 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "at the top here is the generalized form of the linear model",
+      "points": [
+        [
+          409.38461538461536,
+          135.76923076923077
+        ],
+        [
+          612.8461538461538,
+          230.76923076923077
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "at the center here is the matrix form of the linear model",
+      "points": [
+        [
+          447.07692307692304,
+          373.46153846153845
+        ],
+        [
+          574.3846153846154,
+          427.6923076923077
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides02-13.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

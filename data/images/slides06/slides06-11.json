@@ -1,0 +1,42 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "shown at the top is the least square regression loss function - also known as the squared loss",
+      "points": [
+        [
+          230.15384615384613,
+          122.3076923076923
+        ],
+        [
+          785.1538461538461,
+          210.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "computing the gradient of the loss function with respect to w",
+      "points": [
+        [
+          227.46153846153845,
+          262.6923076923077
+        ],
+        [
+          558.6153846153846,
+          332.3076923076923
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides06-11.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

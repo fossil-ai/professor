@@ -1,0 +1,74 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "shown at the top here is the loss function or objective function with an additional regularization term",
+      "points": [
+        [
+          252.46153846153845,
+          159.23076923076923
+        ],
+        [
+          765.5384615384615,
+          267.3076923076923
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "taking the gradient of the loss function with respect to w",
+      "points": [
+        [
+          257.46153846153845,
+          318.8461538461538
+        ],
+        [
+          779.0,
+          420.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "AT the bottom here is the objective loss function with L2 regularizaion otherwise known as ridge regression",
+      "points": [
+        [
+          270.9230769230769,
+          469.6153846153846
+        ],
+        [
+          753.6153846153846,
+          558.8461538461538
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Also shown at the bottom here is the gradient of the ridge regression loss function with respect to w",
+      "points": [
+        [
+          260.53846153846155,
+          565.3846153846154
+        ],
+        [
+          754.3846153846154,
+          654.6153846153846
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides06-19.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

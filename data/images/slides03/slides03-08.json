@@ -1,0 +1,42 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "shown here at the beginning is the covariance matrix expanded",
+      "points": [
+        [
+          70.15384615384615,
+          147.3076923076923
+        ],
+        [
+          987.0769230769231,
+          300.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "The covariance and mean vector can be used to define the multivariate gaussian function shown here",
+      "points": [
+        [
+          168.23076923076923,
+          371.53846153846155
+        ],
+        [
+          836.6923076923076,
+          463.07692307692304
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-08.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

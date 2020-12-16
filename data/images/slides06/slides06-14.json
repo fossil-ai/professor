@@ -1,0 +1,74 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "the gradient descent update to w",
+      "points": [
+        [
+          382.07692307692304,
+          184.6153846153846
+        ],
+        [
+          642.8461538461538,
+          235.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "here is the second order taylor approximation of f around w",
+      "points": [
+        [
+          171.69230769230768,
+          293.0769230769231
+        ],
+        [
+          872.4615384615385,
+          356.53846153846155
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "here at the bottom is the gradient of f with respect to w",
+      "points": [
+        [
+          340.15384615384613,
+          468.46153846153845
+        ],
+        [
+          681.3076923076923,
+          528.8461538461538
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "at the bottom here is the gradient descent update to w",
+      "points": [
+        [
+          372.46153846153845,
+          584.2307692307692
+        ],
+        [
+          634.3846153846154,
+          627.6923076923076
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides06-14.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

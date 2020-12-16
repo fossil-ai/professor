@@ -1,0 +1,42 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "at the center here is the equation for the bernouilli probability distribution",
+      "points": [
+        [
+          371.3076923076923,
+          372.3076923076923
+        ],
+        [
+          653.6153846153846,
+          430.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "looking at the equation at the bottom, we say our labels y draw from a bernoulli distribution",
+      "points": [
+        [
+          372.46153846153845,
+          541.5384615384615
+        ],
+        [
+          650.1538461538461,
+          597.6923076923076
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-22.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

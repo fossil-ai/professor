@@ -1,0 +1,106 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "our predicted linear model at the top",
+      "points": [
+        [
+          79.76923076923076,
+          70.38461538461539
+        ],
+        [
+          311.3076923076923,
+          115.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "at the top here is the loss function for linear regression",
+      "points": [
+        [
+          81.6923076923077,
+          121.15384615384615
+        ],
+        [
+          867.0769230769231,
+          213.07692307692307
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Here we take the gradient of the loss function with respect to w",
+      "points": [
+        [
+          120.53846153846155,
+          241.53846153846152
+        ],
+        [
+          503.61538461538464,
+          330.7692307692308
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Here we take the gradient of the loss function with respect to w",
+      "points": [
+        [
+          124.0,
+          340.38461538461536
+        ],
+        [
+          524.7692307692307,
+          421.15384615384613
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "shown at the right here is the variance",
+      "points": [
+        [
+          666.3076923076923,
+          393.8461538461538
+        ],
+        [
+          927.4615384615385,
+          461.15384615384613
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "at the right here is the covariance",
+      "points": [
+        [
+          968.2307692307692,
+          541.9230769230769
+        ],
+        [
+          627.4615384615385,
+          461.53846153846155
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides02-12.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

@@ -1,0 +1,58 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "shown at the top here is the formula for the covariance matrix",
+      "points": [
+        [
+          262.0769230769231,
+          146.15384615384616
+        ],
+        [
+          743.6153846153846,
+          195.76923076923077
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "at the bottom here we can see how the covariance function can be used to derive the correlation coefficient",
+      "points": [
+        [
+          314.38461538461536,
+          554.6153846153846
+        ],
+        [
+          709.0,
+          627.6923076923076
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "the variance of x is essentially the expectation of the difference between x and its mean squared, show at the bottom here",
+      "points": [
+        [
+          157.46153846153845,
+          630.0
+        ],
+        [
+          440.53846153846155,
+          685.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-07.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

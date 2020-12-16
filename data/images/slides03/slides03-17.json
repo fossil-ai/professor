@@ -1,0 +1,26 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "using our optimal solution w and sigma we have our final linear regression model with gaussian noise",
+      "points": [
+        [
+          361.6923076923077,
+          194.6153846153846
+        ],
+        [
+          644.0,
+          285.38461538461536
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-17.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

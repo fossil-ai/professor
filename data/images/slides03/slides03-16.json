@@ -1,0 +1,42 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "this w value is the optimal weight solution to our maximum likelihood estimator",
+      "points": [
+        [
+          289.0,
+          198.46153846153845
+        ],
+        [
+          582.4615384615385,
+          271.53846153846155
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "NLL indicates the negative of the log-likelihood",
+      "points": [
+        [
+          155.15384615384616,
+          321.9230769230769
+        ],
+        [
+          857.0769230769231,
+          393.07692307692304
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-16.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

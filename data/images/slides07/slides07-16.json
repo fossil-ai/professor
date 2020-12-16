@@ -1,0 +1,74 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "at the top here is the objective function we want to maximize",
+      "points": [
+        [
+          300.53846153846155,
+          99.23076923076923
+        ],
+        [
+          658.2307692307692,
+          205.76923076923077
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "shown at the top here are the constraints for the objective function",
+      "points": [
+        [
+          685.1538461538461,
+          295.7692307692308
+        ],
+        [
+          315.53846153846155,
+          208.84615384615384
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "taking the partial derivative or gradient with respect to the lagrangian objective",
+      "points": [
+        [
+          334.0,
+          505.38461538461536
+        ],
+        [
+          636.3076923076923,
+          581.1538461538462
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "taking the partial derivative or gradient with respect to the lagrangian objective",
+      "points": [
+        [
+          675.1538461538461,
+          692.3076923076923
+        ],
+        [
+          340.53846153846155,
+          584.2307692307692
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides07-16.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

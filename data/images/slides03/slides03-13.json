@@ -1,0 +1,58 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "at the top here is the likelihood of the observing data",
+      "points": [
+        [
+          63.61538461538461,
+          163.84615384615384
+        ],
+        [
+          680.9230769230769,
+          253.46153846153845
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "as seen in the center we insert gaussian noise into the linear regression model",
+      "points": [
+        [
+          352.46153846153845,
+          297.6923076923077
+        ],
+        [
+          621.3076923076923,
+          354.6153846153846
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "at the bottom here is the expanded formulation of the likelihood function",
+      "points": [
+        [
+          45.53846153846153,
+          361.15384615384613
+        ],
+        [
+          964.7692307692307,
+          554.6153846153846
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-13.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

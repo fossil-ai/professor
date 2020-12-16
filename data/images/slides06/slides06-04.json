@@ -1,0 +1,58 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "At the top here is the absolute loss function for a linear model",
+      "points": [
+        [
+          365.9230769230769,
+          128.46153846153845
+        ],
+        [
+          651.3076923076923,
+          220.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "at the bottom here are the linear programming constraints",
+      "points": [
+        [
+          258.2307692307692,
+          486.9230769230769
+        ],
+        [
+          457.46153846153845,
+          588.0769230769231
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "the linear programming objective function",
+      "points": [
+        [
+          228.6153846153846,
+          363.07692307692304
+        ],
+        [
+          477.46153846153845,
+          454.6153846153846
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides06-04.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

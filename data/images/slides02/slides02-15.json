@@ -1,0 +1,26 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "at the top here is the lease squares estimate loss function often known as the squared error",
+      "points": [
+        [
+          85.92307692307692,
+          81.92307692307692
+        ],
+        [
+          705.1538461538461,
+          185.3846153846154
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides02-15.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

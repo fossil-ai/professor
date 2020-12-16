@@ -1,0 +1,90 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "starting from the top, x one is a gaussian distribution",
+      "points": [
+        [
+          196.3076923076923,
+          85.38461538461539
+        ],
+        [
+          374.0,
+          131.9230769230769
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "x two is also a gaussian distribution",
+      "points": [
+        [
+          425.9230769230769,
+          86.92307692307692
+        ],
+        [
+          599.0,
+          133.07692307692307
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "the joint probability is composed of two independent random variables so it factors",
+      "points": [
+        [
+          100.92307692307692,
+          206.9230769230769
+        ],
+        [
+          386.6923076923077,
+          251.15384615384613
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "at the bottom left here is a covariance matrix",
+      "points": [
+        [
+          176.3076923076923,
+          553.0769230769231
+        ],
+        [
+          379.0,
+          660.7692307692307
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "the bottom middle matrix is the mean vector",
+      "points": [
+        [
+          464.7692307692308,
+          552.3076923076923
+        ],
+        [
+          602.4615384615385,
+          658.0769230769231
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-06.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

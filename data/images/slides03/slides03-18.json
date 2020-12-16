@@ -1,0 +1,42 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "this is the gaussian noise",
+      "points": [
+        [
+          297.0769230769231,
+          216.9230769230769
+        ],
+        [
+          451.30769230769226,
+          271.15384615384613
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "shown here at the top is the linear model with noise epsilon",
+      "points": [
+        [
+          269.7692307692308,
+          169.6153846153846
+        ],
+        [
+          437.8461538461538,
+          212.69230769230768
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-18.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

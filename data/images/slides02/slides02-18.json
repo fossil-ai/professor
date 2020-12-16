@@ -1,0 +1,74 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "the loss function for the least squared estimate shown at the top",
+      "points": [
+        [
+          129.3846153846154,
+          93.84615384615384
+        ],
+        [
+          936.6923076923076,
+          200.3846153846154
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "we take the gradient of the loss function with respect to w",
+      "points": [
+        [
+          130.9230769230769,
+          248.46153846153845
+        ],
+        [
+          517.0769230769231,
+          332.6923076923077
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "tat the bottom center here is the closed form solution to the least squared estimate",
+      "points": [
+        [
+          164.3846153846154,
+          433.46153846153845
+        ],
+        [
+          417.8461538461538,
+          498.07692307692304
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "here at the bottom is our trained optimal linear model",
+      "points": [
+        [
+          169.3846153846154,
+          550.0
+        ],
+        [
+          526.3076923076923,
+          619.6153846153846
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides02-18.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

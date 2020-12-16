@@ -1,0 +1,42 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "a linear model on the left",
+      "points": [
+        [
+          48.230769230769226,
+          506.15384615384613
+        ],
+        [
+          354.0,
+          542.6923076923076
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "a linear model on the right",
+      "points": [
+        [
+          487.07692307692304,
+          503.46153846153845
+        ],
+        [
+          811.3076923076923,
+          579.2307692307692
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides02-09.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

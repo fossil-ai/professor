@@ -1,0 +1,58 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "shown on the top is the likelihood of our regression model",
+      "points": [
+        [
+          57.84615384615384,
+          121.92307692307692
+        ],
+        [
+          976.3076923076923,
+          264.6153846153846
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "by taking the log we end up with the log-likelihood of our original likelihood",
+      "points": [
+        [
+          76.3076923076923,
+          413.46153846153845
+        ],
+        [
+          928.6153846153845,
+          499.2307692307692
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "this equation at the bottom is the log-likelihood in vector form",
+      "points": [
+        [
+          275.9230769230769,
+          499.6153846153846
+        ],
+        [
+          975.5384615384615,
+          576.1538461538462
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-14.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

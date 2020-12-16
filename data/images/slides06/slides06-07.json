@@ -1,0 +1,42 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "the gradient of a function f with respect to w",
+      "points": [
+        [
+          54.769230769230774,
+          172.3076923076923
+        ],
+        [
+          363.6153846153846,
+          273.8461538461538
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "taking the gradient twice with respect to w gives the hessian",
+      "points": [
+        [
+          554.7692307692307,
+          395.38461538461536
+        ],
+        [
+          87.46153846153845,
+          275.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides06-07.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}

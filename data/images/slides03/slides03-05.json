@@ -1,0 +1,58 @@
+{
+  "version": "4.5.4",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "at the top here, x is a random variable that samples from the gaussian distribution",
+      "points": [
+        [
+          264.7692307692308,
+          79.61538461538461
+        ],
+        [
+          422.46153846153845,
+          118.84615384615384
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Y is a random variable that samples from the normal distribution",
+      "points": [
+        [
+          476.30769230769226,
+          130.3846153846154
+        ],
+        [
+          627.8461538461538,
+          173.84615384615384
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "at the center here is the CDF or cumulative distribution function",
+      "points": [
+        [
+          335.53846153846155,
+          219.23076923076923
+        ],
+        [
+          694.0,
+          296.53846153846155
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "slides03-05.jpg",
+  "imageData": null,
+  "imageHeight": 756,
+  "imageWidth": 1008
+}
