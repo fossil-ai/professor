@@ -1,0 +1,42 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          439.85714285714283,
+          274.6428571428571
+        ],
+        [
+          599.6785714285713,
+          363.0357142857142
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "The distance between a point X and the hyperplane is normailzed by the l2 norm of w"
+    },
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          384.49999999999994,
+          162.1428571428571
+        ],
+        [
+          626.4642857142857,
+          218.3928571428571
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "We can construct a hyperplane H with w, x and the bias term w0"
+    }
+  ],
+  "imagePath": "slides09-07.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

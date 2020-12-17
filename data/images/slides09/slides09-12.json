@@ -1,0 +1,26 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          46.107142857142854,
+          510.3571428571428
+        ],
+        [
+          831.8214285714284,
+          578.2142857142857
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "The optimal solution for the cost term turns to be something called a hinge loss where the distance of a data point xi with the hyperplane has to be greater than 1"
+    }
+  ],
+  "imagePath": "slides09-12.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

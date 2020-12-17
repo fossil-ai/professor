@@ -1,0 +1,26 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          196.10714285714283,
+          193.3928571428571
+        ],
+        [
+          559.5,
+          318.3928571428571
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "The gaussian radial basis function or a RBF kernel looks like a gaussian distribution with mean and a standard deviation"
+    }
+  ],
+  "imagePath": "slides09-43.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

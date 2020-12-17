@@ -1,0 +1,26 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          261.2857142857143,
+          466.60714285714283
+        ],
+        [
+          760.3928571428571,
+          589.8214285714286
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "We can extend the current model to obtain multiclass probability distributions by changing sigmoid to a softmax"
+    }
+  ],
+  "imagePath": "slides08-10.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

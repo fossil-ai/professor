@@ -1,0 +1,26 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          381.82142857142856,
+          264.82142857142856
+        ],
+        [
+          650.5714285714286,
+          363.9285714285714
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "Another important kernel is the cosine similarity that scales the dot products by dividing the l2 norms of x and x'"
+    }
+  ],
+  "imagePath": "slides09-44.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

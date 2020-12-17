@@ -1,0 +1,26 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          38.96428571428571,
+          110.35714285714283
+        ],
+        [
+          620.2142857142857,
+          388.9285714285714
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "Dual feasibility"
+    }
+  ],
+  "imagePath": "slides09-37.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

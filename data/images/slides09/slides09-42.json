@@ -1,0 +1,42 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          246.99999999999997,
+          438.9285714285714
+        ],
+        [
+          448.7857142857142,
+          490.71428571428567
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "A simple dot product can be defined as a linear kernel"
+    },
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          366.6428571428571,
+          215.71428571428567
+        ],
+        [
+          665.7499999999999,
+          301.4285714285714
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "A d degree polynomial kernel can be defined with a polynomial formula"
+    }
+  ],
+  "imagePath": "slides09-42.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

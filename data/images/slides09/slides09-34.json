@@ -1,0 +1,42 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          54.14285714285714,
+          138.03571428571428
+        ],
+        [
+          389.85714285714283,
+          632.6785714285713
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "Primal feasibility"
+    },
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          446.99999999999994,
+          137.14285714285714
+        ],
+        [
+          953.2499999999999,
+          634.4642857142857
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "Dual feasibility"
+    }
+  ],
+  "imagePath": "slides09-34.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

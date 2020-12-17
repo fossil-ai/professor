@@ -1,0 +1,42 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          242.53571428571425,
+          370.1785714285714
+        ],
+        [
+          751.4642857142857,
+          543.3928571428571
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "Constraints for the dual formulation for N data points"
+    },
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          255.9285714285714,
+          206.78571428571425
+        ],
+        [
+          754.1428571428571,
+          323.74999999999994
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "By solving for derivatives we get a new function g of alpha"
+    }
+  ],
+  "imagePath": "slides09-33.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

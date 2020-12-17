@@ -1,0 +1,42 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          343.4285714285714,
+          330.8928571428571
+        ],
+        [
+          670.2142857142857,
+          563.0357142857142
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "The gradients and derivatives of the warious parameters"
+    },
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          74.67857142857142,
+          175.53571428571428
+        ],
+        [
+          944.3214285714284,
+          281.7857142857143
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "Lagrangian form"
+    }
+  ],
+  "imagePath": "slides09-32.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

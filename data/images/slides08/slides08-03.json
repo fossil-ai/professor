@@ -1,0 +1,58 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          118.19999999999999,
+          181.4
+        ],
+        [
+          717.4,
+          336.6
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "We want to learn the parameter theta of a bernoulli probability distribution. It outputs 1 with probability of theta and 0 with a probability of 1 - theta"
+    },
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          298.4,
+          137.6
+        ],
+        [
+          754.4,
+          178.4
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "The output of the model is calculated by taking a dot product of w and x and converting it a value between 0 and 1 with a sigmoid function."
+    },
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          386.4,
+          383.2
+        ],
+        [
+          674.4,
+          461.6
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "The sigmoid function converts a real valued input t into a number between 0 and 1."
+    }
+  ],
+  "imagePath": "slides08-03.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

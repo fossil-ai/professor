@@ -1,0 +1,42 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          213.9642857142857,
+          346.07142857142856
+        ],
+        [
+          846.9999999999999,
+          454.10714285714283
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "We update the model parameters by taking gradient of negative log likelihood NLL over all N data points with respect to the parameters w"
+    },
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          392.5357142857142,
+          492.5
+        ],
+        [
+          565.75,
+          561.2499999999999
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "The Hessian H is a product of X transposed, S and X"
+    }
+  ],
+  "imagePath": "slides08-08.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

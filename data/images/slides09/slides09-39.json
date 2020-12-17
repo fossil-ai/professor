@@ -1,0 +1,26 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          225.57142857142856,
+          162.1428571428571
+        ],
+        [
+          772.8928571428571,
+          353.21428571428567
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "Gram matrix"
+    }
+  ],
+  "imagePath": "slides09-39.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

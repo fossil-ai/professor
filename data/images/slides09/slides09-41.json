@@ -1,0 +1,26 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          50.57142857142857,
+          433.5714285714285
+        ],
+        [
+          585.3928571428571,
+          588.0357142857142
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "With the kernel trick, the dual formulation changes to include the kernel instead of the plain dot products"
+    }
+  ],
+  "imagePath": "slides09-41.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

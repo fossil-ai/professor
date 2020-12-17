@@ -1,0 +1,26 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          21.107142857142854,
+          171.07142857142856
+        ],
+        [
+          317.5357142857143,
+          448.74999999999994
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "We want to minimize the l2 norm of w but subject to the condition and that distance of a data point xi to the hyperplane should be greater than one"
+    }
+  ],
+  "imagePath": "slides09-09.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

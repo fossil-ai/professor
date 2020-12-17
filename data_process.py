@@ -33,6 +33,7 @@ class Example:
 
 def process(data_path):
     examples = []
+    png_ones = {"slides09", "slides08", "slides11", "slides13"}
     for i, slide_dir in enumerate(os.listdir(data_path)):
         print("Parsing through " + slide_dir)
         for j, filename in enumerate(os.listdir(data_path + "/" + slide_dir)):
@@ -43,6 +44,9 @@ def process(data_path):
                     annotations = json_data['shapes']
                     img_filename = data_path + "/" + slide_dir + \
                         "/" + filename.split(".")[0] + ".jpg"
+                    if slide_dir in png_ones:
+                        img_filename = data_path + "/" + slide_dir + \
+                            "/" + filename.split(".")[0] + ".png"
                     image = Image.open(img_filename)
                     width, height = image.size
                     for ann in annotations:
@@ -85,6 +89,8 @@ def tf_example(example):
     ymin = bbox[0][1] / example.height
     ymax = bbox[1][1] / example.height
 
+    print(xmin, xmax, ymin, ymax)
+
     feature = {
         'height': _int64_feature(example.height),
         'width': _int64_feature(example.width),
@@ -109,7 +115,7 @@ def tf_string_example(example):
 
 
 def create_tf_records(examples):
-    with tf.io.TFRecordWriter("data/tf_records/all_data.record") as writer:
+    with tf.io.TFRecordWriter("data/tf_records/all_data1.record") as writer:
         for i in range(len(examples)):
             example = examples[i]
             print("Writing " + example.img_filename + " to TFRecord")
@@ -118,7 +124,7 @@ def create_tf_records(examples):
 
 
 def create_string_tf_records(examples):
-    with tf.io.TFRecordWriter("data/tf_records/captions.record") as writer:
+    with tf.io.TFRecordWriter("data/tf_records/captions1.record") as writer:
         for i in range(len(examples)):
             example = examples[i]
             example = tf_string_example(example)

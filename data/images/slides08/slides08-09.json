@@ -1,0 +1,42 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          280.9285714285714,
+          182.67857142857142
+        ],
+        [
+          713.9642857142857,
+          283.57142857142856
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "We can obtain the gradient gt and the hessian H and use them in the update rule"
+    },
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          210.3928571428571,
+          339.82142857142856
+        ],
+        [
+          784.4999999999999,
+          516.6071428571428
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "The weights at time step t+1 are given by W t+1 which are function of W t and the Hessian H"
+    }
+  ],
+  "imagePath": "slides08-09.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

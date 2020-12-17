@@ -1,0 +1,42 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          313.96428571428567,
+          154.99999999999997
+        ],
+        [
+          696.1071428571428,
+          233.57142857142856
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "We can use different kernel expansion tricks. Here we use 2 degree polynomial expansion."
+    },
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          130.03571428571428,
+          478.21428571428567
+        ],
+        [
+          886.2857142857142,
+          586.2499999999999
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "With the kernel trick and dot proudct changes to the final simple 2 degree polynomial formula. We only O(D) time for this computaion instead time in the order of Dd"
+    }
+  ],
+  "imagePath": "slides09-40.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

@@ -1,0 +1,42 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          203.24999999999997,
+          437.1428571428571
+        ],
+        [
+          801.4642857142857,
+          524.6428571428571
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "Since the ouptut of the model is continuous, we can simply threshold it at 1/2 to obtain the prediction y new."
+    },
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          138.07142857142856,
+          260.35714285714283
+        ],
+        [
+          864.8571428571428,
+          353.21428571428567
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "We can obtain the probability distribution for x new in test time with the model. We get a prediction y new."
+    }
+  ],
+  "imagePath": "slides08-04.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

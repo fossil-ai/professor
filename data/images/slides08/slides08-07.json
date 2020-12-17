@@ -1,0 +1,26 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          210.3928571428571,
+          372.85714285714283
+        ],
+        [
+          813.9642857142857,
+          439.8214285714285
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "What is the effect of a single data point x i on the negative log likelihood NLL of the model?"
+    }
+  ],
+  "imagePath": "slides08-07.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

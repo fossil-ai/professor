@@ -53,6 +53,7 @@ Hardware Specifications:
 import tensorflow as tf
 physical_devices = tf.config.list_physical_devices('GPU')
 tf.config.experimental.set_memory_growth(physical_devices[0], enable=True)
+os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 
 def swap_xy(boxes):
     """Swaps order the of x and y coordinates of the boxes.
@@ -133,7 +134,7 @@ def visualize_detections(
     image, boxes, classes, scores, figsize=(7, 7), linewidth=1, color=[0, 0, 1]
 ):
     """Visualize Detections"""
-    image = np.array(image, dtype=np.uint8)
+    # image = np.array(image, dtype=np.uint8)
     plt.figure(figsize=figsize)
     plt.axis("off")
     plt.imshow(image)
@@ -254,7 +255,7 @@ class AnchorBox:
 
 
 def resize_and_pad_image(
-    image, min_side=800.0, max_side=1333.0, jitter=[640, 1024], stride=128.0
+    image, min_side=384, max_side=640, jitter=[640, 1024], stride=128.0
 ):
     """Resizes and pads image while preserving aspect ratio.
 
@@ -335,19 +336,19 @@ def preprocess_data(sample):
     label = tf.cast([parsed_features['label']], tf.int32)
     image = parsed_features["image_raw"]
     image = tf.image.decode_image(image)
-    image = tf.reshape(image, [width, height, depth])
+    image = tf.reshape(image, [height, width, depth])
     caption = parsed_features["caption"]
 
     heightf = tf.cast(parsed_features['height'], tf.float32)
     widthf = tf.cast(parsed_features['width'], tf.float32)
     depthf = tf.cast(parsed_features['depth'], tf.float32)
 
-    xmin = tf.cast(parsed_features['xmin'] * widthf, tf.float32)
-    ymin = tf.cast(parsed_features['ymin'] * heightf, tf.float32)
-    xmax = tf.cast(parsed_features['xmax'] * widthf, tf.float32)
-    ymax = tf.cast(parsed_features['ymax'] * heightf, tf.float32)
+    image, image_shape, ratio = resize_and_pad_image(image)
 
-    image, image_shape, _ = resize_and_pad_image(image)
+    xmin = tf.cast(parsed_features['xmin'] * image_shape[1], tf.float32)
+    ymin = tf.cast(parsed_features['ymin'] * image_shape[0], tf.float32)
+    xmax = tf.cast(parsed_features['xmax'] * image_shape[1], tf.float32)
+    ymax = tf.cast(parsed_features['ymax'] * image_shape[0], tf.float32)
 
     bbox = tf.stack(
         [
@@ -360,7 +361,7 @@ def preprocess_data(sample):
     )
 
     bbox = convert_to_xywh(bbox)
-    return image, bbox, label, caption
+    return image, bbox, label, caption, ratio
 
 
 def preprocess_string_data(sample):
@@ -470,7 +471,7 @@ class LabelEncoder:
         label = tf.concat([box_target, cls_target], axis=-1)
         return label
 
-    def encode_batch(self, batch_images, gt_boxes, cls_ids, batch_captions):
+    def encode_batch(self, batch_images, gt_boxes, cls_ids, batch_captions, ratios):
         """Creates box and classification targets for a batch"""
         images_shape = tf.shape(batch_images)
         print(batch_images)
@@ -484,13 +485,13 @@ class LabelEncoder:
             batch_images)
         print(batch_images)
 
-        return {'images': batch_images, 'caption': batch_captions}, labels.stack()
+        return {'images': batch_images, 'caption': batch_captions}, labels.stack(), ratios
 
 
 def get_backbone():
     """Builds ResNet50 with pre-trained imagenet weights"""
     backbone = keras.applications.ResNet50(
-        include_top=False, input_shape=[1152, 896, 3]
+        include_top=False, input_shape=[512, 512, 3]
     )
     c3_output, c4_output, c5_output = [
         backbone.get_layer(layer_name).output
@@ -552,8 +553,8 @@ class TextualEmbeddingLayer(keras.layers.Layer):
             output_dim=64,
             mask_zero=True)
         self.embedding_layer_2 = tf.keras.layers.Bidirectional(
-            tf.keras.layers.LSTM(64))
-        self.embedding_layer_3 = tf.keras.layers.Dense(64, activation='relu')
+            tf.keras.layers.LSTM(32))
+        self.embedding_layer_3 = tf.keras.layers.Dense(32, activation='relu')
 
     def call(self, text, training=True):
         output_0 = self.encoder(text)
@@ -568,16 +569,17 @@ class MultiModalFusionHead(keras.layers.Layer):
         super(MultiModalFusionHead, self).__init__(
             name="MultiModalFusionHead", **kwargs)
         self.feature_flatten = tf.keras.layers.Reshape((-1,))
-        self.feature_encoder = tf.keras.layers.Dense(10, activation='relu')
+        self.feature_encoder = tf.keras.layers.Dense(25, activation='relu')
         self.text_flatten = tf.keras.layers.Reshape((-1,))
-        self.text_encoder = tf.keras.layers.Dense(10, activation='relu')
+        self.text_encoder = tf.keras.layers.Dense(25, activation='relu')
         self.add = tf.keras.layers.Add()
 
     def build(self, input_shape_):
         self.input_feature_layer = tf.keras.layers.InputLayer(
             input_shape=input_shape_[0])
-        tot = input_shape_[0][0]*input_shape_[0][1] * \
-            input_shape_[0][2]*input_shape_[0][3]
+        print(input_shape_)
+        # tot = input_shape_[0][0]*input_shape_[0][1] * \
+        tot = input_shape_[0][1]* input_shape_[0][2]*input_shape_[0][3]
         self.final_feature_encoder = tf.keras.layers.Dense(
             tot, activation='relu')
 
@@ -750,6 +752,8 @@ class RetinaNetBoxLoss(tf.losses.Loss):
 
     def call(self, y_true, y_pred):
         difference = y_true - y_pred
+        print(y_true)
+        print(y_pred)
         absolute_difference = tf.abs(difference)
         squared_difference = difference ** 2
         loss = tf.where(
@@ -785,7 +789,7 @@ class RetinaNetClassificationLoss(tf.losses.Loss):
 class RetinaNetLoss(tf.losses.Loss):
     """Wrapper to combine both the losses"""
 
-    def __init__(self, num_classes=80, alpha=0.25, gamma=2.0, delta=1.0):
+    def __init__(self, num_classes=1, alpha=0.25, gamma=2.0, delta=1.0):
         super(RetinaNetLoss, self).__init__(
             reduction="auto", name="RetinaNetLoss")
         self._clf_loss = RetinaNetClassificationLoss(alpha, gamma)
@@ -822,8 +826,7 @@ class RetinaNetLoss(tf.losses.Loss):
 
 VOCAB_SIZE = 1000
 
-
-word_filename = "data/tf_records/captions.record"
+word_filename = "data/tf_records/captions1.record"
 autotune = tf.data.experimental.AUTOTUNE
 word_dataset = tf.data.TFRecordDataset(
     [word_filename]).map(preprocess_string_data)
@@ -835,10 +838,10 @@ model_dir = "retinanet/"
 batch_size = 1
 num_classes = 1
 
-filename = "data/tf_records/all_data.record"
+filename = "data/tf_records/all_data1.record"
 label_encoder = LabelEncoder()
 
-learning_rates = [2.5e-06, 0.000625, 0.00625, 0.0095, 0.00025, 2.5e-05]
+learning_rates = [2.5e-06, 0.000625, 0.00125, 0.0025, 0.00025, 2.5e-05]
 learning_rate_boundaries = [125, 250, 500, 240000, 360000]
 learning_rate_fn = tf.optimizers.schedules.PiecewiseConstantDecay(
     boundaries=learning_rate_boundaries, values=learning_rates
@@ -847,21 +850,20 @@ learning_rate_fn = tf.optimizers.schedules.PiecewiseConstantDecay(
 autotune = tf.data.experimental.AUTOTUNE
 all_dataset = tf.data.TFRecordDataset([filename]).map(preprocess_data)
 
-val_dataset = all_dataset.take(20)
-train_dataset = all_dataset.skip(10)
+val_dataset = all_dataset.take(30)
+train_dataset = all_dataset.skip(30)
 
-train_dataset = train_dataset.shuffle(8 * batch_size)
+train_dataset = train_dataset.shuffle(2 * batch_size)
 train_dataset = train_dataset.padded_batch(
-    batch_size=batch_size, padding_values=(0.0, 1e-8, -1, ''), drop_remainder=True
+    batch_size=batch_size, padding_values=(0.0, 1e-8, 0, '', 0.0), drop_remainder=True
 )
 train_dataset = train_dataset.map(
     label_encoder.encode_batch, num_parallel_calls=autotune)
 train_dataset = train_dataset.apply(tf.data.experimental.ignore_errors())
 train_dataset = train_dataset.prefetch(autotune)
 
-
 val_dataset = val_dataset.padded_batch(
-    batch_size=batch_size, padding_values=(0.0, 1e-8, -1, ""), drop_remainder=True
+    batch_size=batch_size, padding_values=(0.0, 1e-8, 0, "", 0.0), drop_remainder=True
 )
 val_dataset = val_dataset.map(
     label_encoder.encode_batch, num_parallel_calls=autotune)
@@ -870,8 +872,6 @@ val_dataset = val_dataset.prefetch(autotune)
 
 print("Size of val set is " + str(len(list(val_dataset.as_numpy_iterator()))))
 print("Size of train set is " + str(len(list(train_dataset.as_numpy_iterator()))))
-
-print("Image size is 1024, 768")
 
 resnet50_backbone = get_backbone()
 loss_fn = RetinaNetLoss(num_classes)
@@ -891,10 +891,10 @@ callbacks_list = [
     tf.keras.callbacks.TensorBoard(log_dir="./logs")
 ]
 
-train_steps_per_epoch = 105 // batch_size
-val_steps_per_epoch = 20 // batch_size
+train_steps_per_epoch = 148 // batch_size
+val_steps_per_epoch = 30 // batch_size
 
-train_steps = 4 * 10000
+train_steps = 4 * 3000
 epochs = train_steps // train_steps_per_epoch
 
 model.fit(
@@ -906,4 +906,39 @@ model.fit(
     verbose=1
 )
 
-print(model.summary())
+# print(model.summary())
+
+# Change this to `model_dir` when not using the downloaded weights
+# weights_dir = "retinanet"
+
+# latest_checkpoint = tf.train.latest_checkpoint(weights_dir)
+# model.load_weights(latest_checkpoint)
+
+
+# image = tf.keras.Input(shape=[None, None, 3], name="image")
+# text = tf.keras.Input(shape=[None], name="caption", dtype=tf.string)
+# inputs = {"images":image, "caption":text}
+# predictions = model(inputs, training=False)
+# detections = DecodePredictions(confidence_threshold=0.000001)(inputs["images"], predictions)
+# inference_model = tf.keras.Model(inputs=inputs, outputs=detections)
+
+
+# for sample in train_dataset.take(2):
+#     print(sample[0]["caption"])
+#     # plt.imshow(sample[0]["images"][0])
+#     # image = tf.cast(sample[0]["images"], dtype=tf.float32)
+#     # input_image, ratio = prepare_image(image)
+#     detections = inference_model.predict({"images":sample[0]["images"], "caption": sample[0]["caption"]})
+
+#     print(detections)
+
+#     num_detections = detections.valid_detections[0]
+#     class_names = [
+#         "equation"
+#     ]
+#     visualize_detections(sample[0]["images"][0],
+#         detections.nmsed_boxes[0][:num_detections] / sample[-1][0],
+#         class_names,
+#         detections.nmsed_scores[0][:num_detections],
+
+#     )

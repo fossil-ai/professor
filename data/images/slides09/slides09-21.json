@@ -1,0 +1,58 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          207.7142857142857,
+          558.5714285714286
+        ],
+        [
+          369.32142857142856,
+          625.5357142857142
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "Precision is given as a ratio between true positives TP and the sum of true positives TP and false positives FP"
+    },
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          312.1785714285714,
+          429.99999999999994
+        ],
+        [
+          496.99999999999994,
+          498.75
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "True positive rate is given as a ratio between true positives TP and the sum of true positives TP and false negatives FN"
+    },
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          320.21428571428567,
+          506.7857142857142
+        ],
+        [
+          500.5714285714285,
+          558.5714285714286
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "False positive rate is given as a ratio between false positives FP and a sum of false positives FP and true negatives TN"
+    }
+  ],
+  "imagePath": "slides09-21.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

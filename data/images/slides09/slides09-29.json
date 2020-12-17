@@ -1,0 +1,42 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          202.35714285714283,
+          119.28571428571428
+        ],
+        [
+          803.2499999999999,
+          257.6785714285714
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "Primal form"
+    },
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          231.82142857142856,
+          381.7857142857142
+        ],
+        [
+          785.3928571428571,
+          476.42857142857133
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "Lagrangian form"
+    }
+  ],
+  "imagePath": "slides09-29.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

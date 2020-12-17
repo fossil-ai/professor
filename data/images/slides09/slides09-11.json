@@ -1,0 +1,26 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          36.285714285714285,
+          158.57142857142856
+        ],
+        [
+          451.46428571428567,
+          558.5714285714286
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "We modify the minimization by including a regularization for N data points with a cost term"
+    }
+  ],
+  "imagePath": "slides09-11.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}

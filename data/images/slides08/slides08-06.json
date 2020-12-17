@@ -1,0 +1,26 @@
+{
+  "shapes": [
+    {
+      "shape_type": "rectangle",
+      "points": [
+        [
+          188.07142857142856,
+          544.2857142857142
+        ],
+        [
+          828.2499999999999,
+          654.9999999999999
+        ]
+      ],
+      "flags": {},
+      "group_id": null,
+      "label": "We can estimate the negative log likelihood also called NLL for the N data points by summing the log probabilities of the predictions"
+    }
+  ],
+  "imagePath": "slides08-06.png",
+  "flags": {},
+  "version": "4.5.6",
+  "imageData": null,
+  "imageWidth": 1008,
+  "imageHeight": 756
+}
